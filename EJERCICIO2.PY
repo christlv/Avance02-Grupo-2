@@ -40,11 +40,11 @@ if opcion == 1:
     st.info("**Distribución de adopción digital**")
     st.code("""
 # Contar los valores de la columna
-counts = df["digital_adoption_likelihood"].value_counts()
+counts = df['digital_adoption_likelihood'].value_counts()
 
 # Crear el gráfico de barras
-ax = counts.plot(kind="bar", color=["skyblue","orange"])
-plt.title("Distribución de adopción digital")
+ax = counts.plot(kind='bar', color=['skyblue','orange'])
+plt.title('Distribución de adopción digital')
 
 # Agregar etiquetas encima de cada barra
 for i, val in enumerate(counts):
@@ -56,8 +56,8 @@ elif opcion == 2:
     st.info("**Distribución de género de clientes**")
     st.code("""
 # Crear el countplot
-ax = sns.countplot(data=df, x="CustGender", palette=["pink","skyblue"])
-plt.title("Distribución de género de clientes")
+ax = sns.countplot(data=df, x='CustGender', palette=['pink','skyblue'])
+plt.title('Distribución de género de clientes')
 
 # Agregar etiquetas encima de las barras
 for p in ax.patches:
@@ -70,8 +70,8 @@ plt.show()
 elif opcion == 3:
     st.info("**Distribución de Digital Activity Score**")
     st.code("""
-sns.histplot(df["DigitalActivityScore"], bins=30)
-plt.title("Distribución de Digital Activity Score")
+sns.histplot(df['DigitalActivityScore'], bins=30)
+plt.title('Distribución de Digital Activity Score')
 plt.show()
 """, language="python")
 
@@ -79,8 +79,8 @@ elif opcion == 4:
     st.info("**Relación entre transacciones digitales y presenciales**")
     st.code("""
 plt.figure(figsize=(6,4))
-sns.scatterplot(data=df, x="DigitalTransactionsCount", y="BranchTransactionsCount")
-plt.title("Relación entre transacciones digitales y presenciales")
+sns.scatterplot(data=df, x='DigitalTransactionsCount', y='BranchTransactionsCount')
+plt.title('Relación entre transacciones digitales y presenciales')
 plt.show()
 """, language="python")
 
@@ -88,15 +88,15 @@ elif opcion == 5:
     st.info("**Tipos de tarjeta por cliente**")
     st.code("""
 color_map = {
-    "Black": "#000000",
-    "Platinum": "#E5E4E2",
-    "Gold": "#FFD700",
-    "Classic": "#1E90FF"
+    'Black': '#000000',
+    'Platinum': '#E5E4E2',
+    'Gold': '#FFD700',
+    'Classic': '#1E90FF'
 }
 
 # Crear el countplot
-ax = sns.countplot(data=df, x="CreditCardType", palette=color_map)
-plt.title("Tipos de tarjeta por cliente")
+ax = sns.countplot(data=df, x='CreditCardType', palette=color_map)
+plt.title('Tipos de tarjeta por cliente')
 
 # Agregar etiquetas encima de cada barra
 for p in ax.patches:
