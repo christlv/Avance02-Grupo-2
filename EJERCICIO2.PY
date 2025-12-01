@@ -39,7 +39,7 @@ st.image(imagenes[opcion], use_container_width=True)
 if opcion == 1:
     st.info(
         "**Distribución de adopción digital)** | "
-        "# Contar los valores de la columna
+        """# Contar los valores de la columna
           counts = df["digital_adoption_likelihood"].value_counts()
 
         # Crear el gráfico de barras
@@ -49,13 +49,13 @@ if opcion == 1:
         # Agregar etiquetas encima de cada barra
           for i, val in enumerate(counts):
           ax.text(i, val + 5, str(val), ha='center', va='bottom')  # +5 para que no quede pegado
-          plt.show() "
+          plt.show() """
         )
 
 if opcion == 2:
     st.info(
         "**Distribución de género de clientes** | "
-        "# Crear el countplot
+        """# Crear el countplot
         ax = sns.countplot(data=df, x="CustGender", palette=["PINK","skyblue"])  # colores opcionales
         plt.title("Distribución de género de clientes")
 
@@ -64,32 +64,32 @@ if opcion == 2:
          ax.annotate(f'{int(p.get_height())}',  # valor de la barra
                 (p.get_x() + p.get_width()/2., p.get_height()),  # posición (centro arriba de la barra)
                 ha='center', va='bottom', fontsize=10)
-         plt.show() "
+         plt.show() """
         
     )
 
 if opcion == 3:
     st.info(
         "**Distribución de Digital Activity Score** | "
-        "sns.histplot(df["DigitalActivityScore"], bins=30)
+        """sns.histplot(df["DigitalActivityScore"], bins=30)
          plt.title("Distribución de Digital Activity Score")
-         plt.show()"
+         plt.show()"""
         
     )
 
 if opcion == 4:
     st.info(
         "**Relación entre transacciones digitales y presenciales** | "
-        "plt.figure(figsize=(6,4))
+        """plt.figure(figsize=(6,4))
          sns.scatterplot(data=df, x="DigitalTransactionsCount", y="BranchTransactionsCount")
          plt.title("Relación entre transacciones digitales y presenciales")
-         plt.show()"
+         plt.show()"""
     )
 
 if opcion == 5:
     st.info(
         "**Tipos de tarjeta por cliente** | "
-        "# Colores exactos por tarjeta
+        """# Colores exactos por tarjeta
          color_map = {
          "Black": "#000000",
           "Platinum": "#E5E4E2",
@@ -111,6 +111,6 @@ if opcion == 5:
                 ha='center', va='bottom',
                 fontsize=10,
                 color='white')  # texto blanco sobre barras oscuras
-       plt.show() "
+       plt.show() """
         
     )
