@@ -7,38 +7,24 @@ st.set_page_config(page_title="Sesión 2 | ISIL", layout="centered")
 
 st.title("Segmentación de Clientes por Comportamiento Digital | Timeline")
 st.write("Autor: Christian Torres | ISIL")
-st.write(
-    "EDA - segmentación y el análisis del comportamiento digital "
-)
+st.write("EDA - segmentación y el análisis del comportamiento digital")
 
-# URLs de imágenes en GitHub (modifícalas según tus archivos)
-
+# Para evitar errores al mostrar código que usa df
+df = pd.DataFrame()
 
 base_url = "https://raw.githubusercontent.com/christlv/Avance02-Grupo-2/main/GRAFICOS/"
-
-
 imagenes = {
    1: base_url + "GRAFICO2.png",
    2: base_url + "GRAFICO3.png",
    3: base_url + "GRAFICO4.png",
    4: base_url + "GRAFICO5.png",
    5: base_url + "GRAFICO6.png"
-   
 }
 
-# Slider
-opcion = st.slider(
-    "Selecciona un punto del timeline",
-    min_value=1,
-    max_value=5,
-    value=1,
-    step=1
-)
-
-# Mostrar imagen según slider
+opcion = st.slider("Selecciona un punto del timeline", 1, 5, 1)
 st.image(imagenes[opcion], use_container_width=True)
 
-# Información del timeline
+# Mostrar código según la opción
 if opcion == 1:
     st.info("**Distribución de adopción digital**")
     st.code("""
@@ -111,3 +97,4 @@ for p in ax.patches:
                 color='white')
 plt.show()
 """, language="python")
+
