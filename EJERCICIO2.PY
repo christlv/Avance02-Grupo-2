@@ -37,80 +37,74 @@ st.image(imagenes[opcion], use_container_width=True)
 
 # Información del timeline
 if opcion == 1:
-    st.info(
-        "**Distribución de adopción digital)** | "
-        """# Contar los valores de la columna
-          counts = df["digital_adoption_likelihood"].value_counts()
+    st.info("**Distribución de adopción digital**")
+    st.code("""
+# Contar los valores de la columna
+counts = df["digital_adoption_likelihood"].value_counts()
 
-        # Crear el gráfico de barras
-          ax = counts.plot(kind="bar", color=["skyblue","orange"])
-          plt.title("Distribución de adopción digital")
+# Crear el gráfico de barras
+ax = counts.plot(kind="bar", color=["skyblue","orange"])
+plt.title("Distribución de adopción digital")
 
-        # Agregar etiquetas encima de cada barra
-          for i, val in enumerate(counts):
-          ax.text(i, val + 5, str(val), ha='center', va='bottom')  # +5 para que no quede pegado
-          plt.show() """
-        )
+# Agregar etiquetas encima de cada barra
+for i, val in enumerate(counts):
+    ax.text(i, val + 5, str(val), ha='center', va='bottom')
+plt.show()
+""", language="python")
 
-if opcion == 2:
-    st.info(
-        "**Distribución de género de clientes** | "
-        """# Crear el countplot
-        ax = sns.countplot(data=df, x="CustGender", palette=["PINK","skyblue"])  # colores opcionales
-        plt.title("Distribución de género de clientes")
+elif opcion == 2:
+    st.info("**Distribución de género de clientes**")
+    st.code("""
+# Crear el countplot
+ax = sns.countplot(data=df, x="CustGender", palette=["pink","skyblue"])
+plt.title("Distribución de género de clientes")
 
-        # Agregar etiquetas encima de las barras
-         for p in ax.patches:
-         ax.annotate(f'{int(p.get_height())}',  # valor de la barra
-                (p.get_x() + p.get_width()/2., p.get_height()),  # posición (centro arriba de la barra)
+# Agregar etiquetas encima de las barras
+for p in ax.patches:
+    ax.annotate(f'{int(p.get_height())}',
+                (p.get_x() + p.get_width()/2., p.get_height()),
                 ha='center', va='bottom', fontsize=10)
-         plt.show() """
-        
-    )
+plt.show()
+""", language="python")
 
-if opcion == 3:
-    st.info(
-        "**Distribución de Digital Activity Score** | "
-        """sns.histplot(df["DigitalActivityScore"], bins=30)
-         plt.title("Distribución de Digital Activity Score")
-         plt.show()"""
-        
-    )
+elif opcion == 3:
+    st.info("**Distribución de Digital Activity Score**")
+    st.code("""
+sns.histplot(df["DigitalActivityScore"], bins=30)
+plt.title("Distribución de Digital Activity Score")
+plt.show()
+""", language="python")
 
-if opcion == 4:
-    st.info(
-        "**Relación entre transacciones digitales y presenciales** | "
-        """plt.figure(figsize=(6,4))
-         sns.scatterplot(data=df, x="DigitalTransactionsCount", y="BranchTransactionsCount")
-         plt.title("Relación entre transacciones digitales y presenciales")
-         plt.show()"""
-    )
+elif opcion == 4:
+    st.info("**Relación entre transacciones digitales y presenciales**")
+    st.code("""
+plt.figure(figsize=(6,4))
+sns.scatterplot(data=df, x="DigitalTransactionsCount", y="BranchTransactionsCount")
+plt.title("Relación entre transacciones digitales y presenciales")
+plt.show()
+""", language="python")
 
-if opcion == 5:
-    st.info(
-        "**Tipos de tarjeta por cliente** | "
-        """# Colores exactos por tarjeta
-         color_map = {
-         "Black": "#000000",
-          "Platinum": "#E5E4E2",
-         "Gold": "#FFD700",
-        "Classic": "#1E90FF"
+elif opcion == 5:
+    st.info("**Tipos de tarjeta por cliente**")
+    st.code("""
+color_map = {
+    "Black": "#000000",
+    "Platinum": "#E5E4E2",
+    "Gold": "#FFD700",
+    "Classic": "#1E90FF"
 }
 
-         # Crear el countplot
-         ax = sns.countplot(data=df, x="CreditCardType", palette=color_map)
-        plt.title("Tipos de tarjeta por cliente")
+# Crear el countplot
+ax = sns.countplot(data=df, x="CreditCardType", palette=color_map)
+plt.title("Tipos de tarjeta por cliente")
 
-       # Agregar etiquetas encima de cada barra
-       for p in ax.patches:
-       height = p.get_height()
-    
-       # Forzar que todas las etiquetas sean visibles
-        ax.annotate(f'{int(height)}',
-                (p.get_x() + p.get_width()/2., height + 5),  # +5 para que quede arriba de la barra
+# Agregar etiquetas encima de cada barra
+for p in ax.patches:
+    height = p.get_height()
+    ax.annotate(f'{int(height)}',
+                (p.get_x() + p.get_width()/2., height + 5),
                 ha='center', va='bottom',
                 fontsize=10,
-                color='white')  # texto blanco sobre barras oscuras
-       plt.show() """
-        
-    )
+                color='white')
+plt.show()
+""", language="python")
